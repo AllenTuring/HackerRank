@@ -13,5 +13,7 @@ import sys
 n = int(input().strip())
 
 for i in range(n):
+	# Print n-(i+1) spaces and then i+1 hashes
+	# We use i+1 because i starts at 0
     print(" "*(n-i-1) + "#"*(i+1))
 
