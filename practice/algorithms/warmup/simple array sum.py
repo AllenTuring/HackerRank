@@ -2,6 +2,9 @@
 
 import sys
 
+# Problem:
+# Given an input array, find its sum.
+
 def simpleArraySum(n, ar):
     # we could do this with a loop,
     # or just be lazy...
