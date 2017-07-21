@@ -1,20 +1,12 @@
 Solve Me First
-	solve-me-first.py
 Simple Array Sum
-	simple-array-sum.py
 Compare the Triplets
-	compare-the-triplets.py
 A Very Big Sum
-	a-very-big-sum.py
 Diagonal Difference
-	diagonal-difference.py
 Plus Minus
-	plus-minus.py
 Staircase
-	staircase.py
 Mini-Max Sum
-	mini-max-sum.py
 Birthday Cake Candles
-	birthday-cake-candles.py
+	birthday-cake-candles
 Time Conversion
-	time-conversion.py
+	time-conversion
