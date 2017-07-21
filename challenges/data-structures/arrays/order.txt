@@ -1,6 +1,7 @@
 Arrays - DS
 	arrays-ds
 2D Array - DS
+	2d-array-ds
 Dynamic Array
 Left Rotation
 Sparse Arrays

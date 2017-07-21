@@ -1,5 +1,8 @@
 #!/bin/python3
 
+# Author: Allen Jiang
+# Source: HackerRank
+
 import sys
 
 # Problem TLDR:
