@@ -1,20 +1,20 @@
 Solve Me First
-	soln-python3/solve-me-first.py
+	solve-me-first.py
 Simple Array Sum
-	soln-python3/simple-array-sum.py
+	simple-array-sum.py
 Compare the Triplets
-	soln-python3/compare-the-triplets.py
+	compare-the-triplets.py
 A Very Big Sum
-	soln-python3/a-very-big-sum.py
+	a-very-big-sum.py
 Diagonal Difference
-	soln-python3/diagonal-difference.py
+	diagonal-difference.py
 Plus Minus
-	soln-python3/plus-minus.py
+	plus-minus.py
 Staircase
-	soln-python3/staircase.py
+	staircase.py
 Mini-Max Sum
-	soln-python3/mini-max-sum.py
+	mini-max-sum.py
 Birthday Cake Candles
-	soln-python3/birthday-cake-candles.py
+	birthday-cake-candles.py
 Time Conversion
-	soln-python3/time-conversion.py
+	time-conversion.py
