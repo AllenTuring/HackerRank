@@ -3,6 +3,7 @@ Arrays - DS
 2D Array - DS
 	2d-array-ds
 Dynamic Array
+	dynamic-array
 Left Rotation
 Sparse Arrays
 Algorithmic Crush
