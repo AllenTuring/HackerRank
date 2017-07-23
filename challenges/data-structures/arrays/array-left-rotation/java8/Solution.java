@@ -24,37 +24,22 @@ public class Solution {
         int len = in.nextInt();
         int dist = in.nextInt();
         // Read the array
-        int[] data = readArray(len);
-
-        data = rotateLeft(data, dist);
-
+        int[] data = readArrayRotate(len, dist);
         // Output
         System.out.println(intArrayToString(data));
     }
 
-    /** Returns a new, rotated array based on an old array
-	* @param data The input array
+    /** Reads an int array from stdin, and rotates it.
+    * @param len The length of the array
     * @param dist The distance to rotate
     * @returns The array of integers read.
     */
-    private static int[] rotateLeft(int[] data, int dist) {
-    	// code here
-    	int len = data.length;
-    	int[] output = new int[len];
-    	for (int i = 0; i < len; i++) {
-    		output[i] = data[(i + dist) % len];
-    	}
-    	return output;
-    }
-
-    /** Reads an int array from stdin.
-    * @param len The length of the array
-    * @returns The array of integers read.
-    */
-    private static int[] readArray(int len) {
+    private static int[] readArrayRotate(int len, int dist) {
     	int[] data = new int[len];
     	for (int i = 0; i < len; i++) {
-    		data[i] = in.nextInt();
+    		// Start reading digits, write them in their post-rotation positions
+    		// The position is (i - dist) % len; extra +len is antinegative buffer
+    		data[(i + len - dist) % len] = in.nextInt();
     	}
     	return data;
     }
