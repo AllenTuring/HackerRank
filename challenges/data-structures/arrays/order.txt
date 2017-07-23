@@ -11,3 +11,4 @@ Sparse Arrays
 		sparse-arrays/java8/array-solution
 		sparse-arrays/java8/hashmap-solution
 Algorithmic Crush
+	algorithmic-crush
