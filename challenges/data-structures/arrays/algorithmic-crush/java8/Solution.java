@@ -13,7 +13,7 @@ public class Solution {
 	You get two integers, N and M. Make a list of zeroes of size N.
 	There are M commands that follow, of the format:
 	a b k
-	Meaning, add the number k to all integers at indices in the range a-b inclusive.
+	Meaning, add the number k to all integers at indices in the range a-b inclusive. (1-indexed!)
 	Once you're done, spit out the biggest integer in the N-size list.
 	*/
 
@@ -57,4 +57,5 @@ public class Solution {
     	// TODO stub
     	return 0;
     }
+
 }
