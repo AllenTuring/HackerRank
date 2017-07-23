@@ -39,7 +39,12 @@ public class Solution {
     */
     private static int[] rotateLeft(int[] data, int dist) {
     	// code here
-    	return null;
+    	int len = data.length;
+    	int[] output = new int[len];
+    	for (int i = 0; i < len; i++) {
+    		output[i] = data[(i + dist) % len];
+    	}
+    	return output;
     }
 
     /** Reads an int array from stdin.
