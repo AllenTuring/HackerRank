@@ -22,7 +22,10 @@ public class Solution {
 	*/
 
 	// List of sequences to keep track of, and their array stored sizes
-	private static ArrayList<ArrayList<Integer>> seqList;
+	// We want an internal List<Integer> because using an internal array would make memory O(n^2)
+	// which is unacceptable for this problem.
+	// ArrayList is used here as an array that safely handles generics like List<Integer>.
+	private static ArrayList<List<Integer>> seqList;
 	// Storage for n
 	private static int n;
 	// The lastAnswer storage
@@ -35,10 +38,14 @@ public class Solution {
     	n = in.nextInt();
     	int commandCount = in.nextInt();
 
-    	// Initialize seqList to the correct size.
-    	seqList = new ArrayList<ArrayList<Integer>>(n);
+    	// Initialize seqList to the correct size. Thus there are no slow ArrayList expansions,
+    	// And thus ArrayList effectively becomes a fixed array in terms of runtime/memory.
+    	seqList = new ArrayList<List<Integer>>(n);
         for (int i = 0; i < n; i++) {
-            seqList.add(new ArrayList<Integer>());
+        	// Since most use cases will have at least as many "insert at the end"
+        	// commands as "read" commands, we want a data structure that has fast end-insertion,
+        	// like LinkedList, over a data structure that has fast read access, like arrays or ArrayList.
+            seqList.add(new LinkedList<Integer>());
         }
 
     	// Read the specified number of commands.
@@ -81,7 +88,7 @@ public class Solution {
 	* @return The element at the specified indices in the sequence list
     */
     private static int read(int index, int subindex) {
-        ArrayList<Integer> seq = seqList.get(index);
+        List<Integer> seq = seqList.get(index);
     	return seq.get(subindex % seq.size());
     }
 }
