@@ -26,7 +26,7 @@ public class Solution {
         // Read the array
         int[] data = readArray(len);
 
-        data = rotate(data, dist);
+        data = rotateLeft(data, dist);
 
         // Output
         System.out.println(intArrayToString(input));
