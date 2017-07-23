@@ -26,7 +26,9 @@ public class Solution {
         // Read the array
         int[] data = readArrayRotate(len, dist);
         // Output
-        System.out.println(intArrayToString(data));
+        for (int i = 0; i < data.length; i++) {
+        	System.out.print(data[i] + " ");
+        }
     }
 
     /** Reads an int array from stdin, and rotates it.
@@ -42,22 +44,5 @@ public class Solution {
     		data[(i + len - dist) % len] = in.nextInt();
     	}
     	return data;
-    }
-
-    /** Converts an int array into a space-separated string.
-    * @param input An array of integers
-    * @returns A String containing the ints in input, separated by spaces.
-    */
-    private static String intArrayToString(int[] input) {
-    	String output = "";
-        for (int i = 0; i < input.length; i++) {
-            // Add space before all but the first one
-            if (i > 0) {
-                output += " ";
-            }
-            // Add the next integer
-            output += input[i];
-        }
-        return output;
     }
 }
