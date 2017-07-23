@@ -18,6 +18,7 @@ public class Solution {
 	- Find sequence # (x xor lastanswer) % n,
 	- Find element # y (modulo with size of sequence to wrap)
 	- Write that element to lastAnswer, and then print it.
+	Be careful with memory conservation! This problem is not solvable by a 2D array.
 	*/
 
 	// List of sequences to keep track of, and their array stored sizes
