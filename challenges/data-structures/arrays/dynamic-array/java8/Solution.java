@@ -37,7 +37,7 @@ public class Solution {
     	// Initialize seqList to the correct size.
     	seqList = new ArrayList<ArrayList<Integer>>(n);
         for (int i = 0; i < n; i++) {
-            seqList.add(new ArrayList<Integer>(n));
+            seqList.add(new ArrayList<Integer>());
         }
 
     	// Read the specified number of commands.
