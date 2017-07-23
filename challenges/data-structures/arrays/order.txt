@@ -8,4 +8,6 @@ Left Rotation
 	array-left-rotation
 Sparse Arrays
 	sparse-arrays
+		sparse-arrays/java8/array-solution
+		sparse-arrays/java8/hashmap-solution
 Algorithmic Crush
