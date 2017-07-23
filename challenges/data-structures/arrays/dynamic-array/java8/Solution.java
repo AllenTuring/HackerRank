@@ -1,32 +1,11 @@
 import java.io.*;
 import java.util.*;
 
-/**
-* @author Allen Jiang
-* Solution class for HackerRank
-*/
 
 public class Solution {
 
-	/*
-	Problem:
-	You must keep track of an int, here called lastAnswer, and a list of empty sequences.
-	You get 2 numbers to begin with:
-	- A number of sequences (n) to keep track of, which is also the max length of each.
-	- A number of commands that follow.
-	Then is a list of commands of format: c x y
-	If c is 1, then:
-	- Find sequence # (x xor lastanswer) % n,
-	- Append y to that sequence.
-	If c is 2, then:
-	- Find sequence # (x xor lastanswer) % n,
-	- Find element # y (modulo with size of sequence to wrap)
-	- Write that element to lastAnswer, and then print it.
-	*/
-
 	// List of sequences to keep track of, and their array stored sizes
-	private static int[][] seqList;
-	private static int[] seqSizes;
+	private static List<Integer>[] seqList;
 	// The lastAnswer storage
 	private static int lastAnswer;
 	// Read input scanner from system.in
@@ -38,8 +17,10 @@ public class Solution {
     	int commandCount = in.nextInt();
 
     	// Initialize seqList to the correct size.
-    	seqList = new int[size][size];
-    	seqSizes = new int[size];
+    	seqList = (List<Integer>[]) (new List[size]);
+        for (int i = 0; i < size; i++) {
+            seqList[i] = new ArrayList<Integer>(size);
+        }
 
     	// Read the specified number of commands.
     	for (int i = 0; i < commandCount; i++) {
@@ -55,7 +36,6 @@ public class Solution {
     	int x = in.nextInt();
     	int y = in.nextInt();
     	int index = x ^ lastAnswer;
-
     	// Execute them.
     	switch (command) {
     		case 1:
@@ -63,8 +43,8 @@ public class Solution {
     			break;
     		case 2:
     			lastAnswer = read(index, y);
-    			System.out.println(lastAnswer);
-    			break;
+                System.out.println(lastAnswer);
+                break;
     	}
     }
 
@@ -76,9 +56,7 @@ public class Solution {
     	// Modulo wrap the index value
     	index = index % seqList.length;
     	// Find the subindex value of the tail.
-    	int subindex = seqSizes[index];
-    	seqList[index][subindex] = val;
-    	seqSizes[index]++;
+    	seqList[index].add(val);
     }
 
     /** Reads the value at the specified index and subindex in the sequence list
@@ -88,7 +66,8 @@ public class Solution {
     */
     private static int read(int index, int subindex) {
     	index = index % seqList.length;
-    	subindex = subindex % seqSizes[index];
-    	return seqList[index][subindex];
+    	subindex = subindex % seqList[index].size();
+    	return seqList[index].get(subindex);
     }
+
 }
