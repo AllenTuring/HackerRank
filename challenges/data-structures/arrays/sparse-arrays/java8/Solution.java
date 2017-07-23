@@ -19,15 +19,23 @@ public class Solution {
 	// Read input scanner from system.in
 	private static Scanner in = new Scanner(System.in);
 	// Storage for the list of strings.
-	private static String[] data;
+	private static HashMap<String, Integer> data;
 
 	public static void main(String[] args) {
 		// Read the Strings
         int stringCount = in.nextInt();
         in.nextLine(); // chuck 1 line buffer
-        data = new String[stringCount];
+        data = new HashMap<String, Integer>();
         for (int i = 0; i < stringCount; i++) {
-        	data[i] = in.nextLine();
+        	// Read the next piece of data
+        	String datum = in.nextLine();
+        	// If the String is not yet stored
+        	if (data.get(datum) == null) {
+        		// Store it as a new key with the entry 0 instances (It will be 1 in next step)
+        		data.put(datum, 0);
+        	}
+        	// Whether first time or not, increase the entry by 1
+        	data.put(datum, data.get(datum) + 1);
         }
         // Read and search queries
         int queryCount = in.nextInt();
@@ -43,11 +51,9 @@ public class Solution {
     * @return Integer count of the number of times the given query appears.
     */
     private static int instanceCount(String query) {
-    	int count = 0;
-    	for (int i = 0; i < data.length; i++) {
-    		if (data[i].equals(query)) {
-    			count++;
-    		}
+    	Integer count = data.get(query);
+    	if (count == null) { // if this doesn't exist in the dataset,
+    		return 0;
     	}
     	return count;
     }
