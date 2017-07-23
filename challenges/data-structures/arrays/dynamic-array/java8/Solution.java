@@ -5,7 +5,7 @@ import java.util.*;
 public class Solution {
 
 	// List of sequences to keep track of, and their array stored sizes
-	private static List<Integer>[] seqList;
+	private static FastIntArrayList[] seqList;
 	// The lastAnswer storage
 	private static int lastAnswer;
 	// Read input scanner from system.in
@@ -17,9 +17,9 @@ public class Solution {
     	int commandCount = in.nextInt();
 
     	// Initialize seqList to the correct size.
-    	seqList = (List<Integer>[]) (new List[size]);
+    	seqList = new FastIntArrayList[size];
         for (int i = 0; i < size; i++) {
-            seqList[i] = new ArrayList<Integer>(size);
+            seqList[i] = new FastIntArrayList(size);
         }
 
     	// Read the specified number of commands.
@@ -66,8 +66,38 @@ public class Solution {
     */
     private static int read(int index, int subindex) {
     	index = index % seqList.length;
-    	subindex = subindex % seqList[index].size();
     	return seqList[index].get(subindex);
+    }
+    
+    /** A class for wrapping the data as a non-generic int array list.
+    * Note that this data structure does not expand.
+    */
+    private static class FastIntArrayList {
+        int[] data;
+        int size;
+        
+        /** Constructor for a new FastIntArrayList
+        * @param maxSize the maximum size of this array list.
+        */
+        public FastIntArrayList(int maxSize) {
+            this.size = 0;
+            this.data = new int[maxSize];
+        }
+        
+        /** Adds a new element to the end of this array list.
+        * @param elem The element to add.
+        */
+        public void add(int elem) {
+            data[size] = elem;
+            size++;
+        }
+        
+        /** Gets the specified element of this array list
+        * @param index The index of the element to return.
+        */
+        public int get(int index) {
+            return data[index % size];
+        }
     }
 
 }
