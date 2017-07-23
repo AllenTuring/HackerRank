@@ -7,4 +7,5 @@ Dynamic Array
 Left Rotation
 	array-left-rotation
 Sparse Arrays
+	sparse-arrays
 Algorithmic Crush
