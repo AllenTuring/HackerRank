@@ -29,7 +29,7 @@ public class Solution {
         data = rotateLeft(data, dist);
 
         // Output
-        System.out.println(intArrayToString(input));
+        System.out.println(intArrayToString(data));
     }
 
     /** Returns a new, rotated array based on an old array
