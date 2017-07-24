@@ -55,7 +55,7 @@ public class Solution {
     /** Finds the maximum value in the list
     * @returns The maximum value in the ranged list
     */
-    private static int getMax() {
+    private static long getMax() {
     	// TODO stub
     	return list.getMax();
     }
@@ -69,7 +69,7 @@ public class Solution {
     	* @param size The size of the imaginary list
     	*/
     	public PartitionedSumList(int size) {
-    		this.data = new ArrayList<PartitionedSum>();
+    		this.data = new LinkedList<PartitionedSum>();
     		this.data.add(new PartitionedSum(0, size, 0));
     	}
 
@@ -89,19 +89,29 @@ public class Solution {
 	    			// If so we need to take action
 	    			// Buffer off the first half if necessary
 	    			if (datum.a < a) {
-	    				// split into two along a
-	    				PartitionedSum headSplit = new PartitionedSum(datum.a, a, datum.value);
-	    				datum.a = a;
-	    				// insert the new half in the data registry
-	    				data.add(headSplit);
+                        // If the partition right before has a matching value
+                        if (i > 0 && data.get(i - 1).value == datum.value) {
+                            data.get(i - 1).b = a; // Merge the unaffected head
+                        } else {
+    	    				// split into two along a
+    	    				PartitionedSum headSplit = new PartitionedSum(datum.a, a, datum.value);
+    	    				// insert the new half in the data registry
+    	    				data.add(i, headSplit);
+                        }
+                        datum.a = a;
 	    			}
 	    			// Then the second half
 	    			if (b < datum.b) {
-	    				// split into two along b
-	    				PartitionedSum tailSplit = new PartitionedSum(b, datum.b, datum.value);
-	    				datum.b = b;
-	    				// insert the new half in the data registry
-	    				data.add(tailSplit);
+                        // If the partition right after has a matching value
+                        if (i < dataSize - 1 && data.get(i + 1).value == datum.value) {
+                            data.get(i + 1).a = b; // Merge the unaffected tail
+                        } else {
+    	    				// split into two along b
+    	    				PartitionedSum tailSplit = new PartitionedSum(b, datum.b, datum.value);
+    	    				// insert the new half in the data registry
+    	    				data.add(i + 1, tailSplit);
+                        }
+                        datum.b = b;
 	    			}
 	    			// Finally add val to what's left in the middle.
 		    		datum.value += val;
@@ -113,13 +123,14 @@ public class Solution {
 		/** Finds the maximum value of all partitioned sums
 	    * @returns The largest partitioned sum
 	    */
-    	public int getMax() {
-    		int max = data.get(0).value;
+    	public long getMax() {
+    		long max = data.get(0).value;
     		int dataSize = data.size();
+            Iterator<PartitionedSum> iter = data.listIterator(0);
     		// Loop through the data
-    		for (int i = 0; i < dataSize; i++) {
+    		while (iter.hasNext()) {
     			// Get values, if they are bigger than max then set max to that
-    			int val = data.get(i).value;
+    			long val = iter.next().value;
     			if (val > max) {
     				max = val;
     			}
@@ -129,7 +140,7 @@ public class Solution {
 
     	private static class PartitionedSum {
     		// The value within this partition segment
-    		public int value;
+    		public long value;
     		// The starting index of this segment (inclusive)
     		public int a;
     		// The ending index of this segment (inclusive)
@@ -140,7 +151,7 @@ public class Solution {
 	    	* @param a The starting index of this segment (inclusive)
 	    	* @param b The ending index of this segment (exclusive)
 	    	*/
-	    	public PartitionedSum(int a, int b, int val) {
+	    	public PartitionedSum(int a, int b, long val) {
 	    		this.value = val;
 	    		this.a = a;
 	    		this.b = b;
