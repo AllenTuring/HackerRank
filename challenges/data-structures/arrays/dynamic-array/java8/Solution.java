@@ -46,10 +46,9 @@ public class Solution {
     	// And thus ArrayList effectively becomes a fixed array in terms of runtime/memory.
     	seqList = new ArrayList<List<Integer>>(n);
         for (int i = 0; i < n; i++) {
-        	// Since most use cases will have at least as many "insert at the end"
-        	// commands as "read" commands, we want a data structure that has fast end-insertion,
-        	// like LinkedList, over a data structure that has fast read access, like arrays or ArrayList.
-            seqList.add(new LinkedList<Integer>());
+        	// Our commands are "insert at the end" and "read" commands,
+        	// so we want a data structure that has fast access, like ArrayList.
+            seqList.add(new ArrayList<Integer>());
         }
 
     	// Read the specified number of commands.
