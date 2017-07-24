@@ -1,0 +1,8 @@
+Day 0: Hello, World
+	hello-world
+Day 1: Data Types
+	data-types
+Day 2: Operators
+	operators
+Day 3: Intro to Conditional Statements
+	intro-conditional
