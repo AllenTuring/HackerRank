@@ -8,3 +8,5 @@ Insert a Node at a Specific Position in a Linked List
 	insert-node-nth
 Delete a Node from a Linked List
 	delete-node
+Print the Elements of a Linked List in Reverse
+	print-reverse

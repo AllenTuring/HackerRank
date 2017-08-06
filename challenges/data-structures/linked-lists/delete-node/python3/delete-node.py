@@ -13,8 +13,7 @@
 # Author: Allen Jiang
 # Source: HackerRank
 def Delete(head, position):
-  
-  
-  
-  
-  
+    if position == 0:
+        return head.next
+    else:
+        return Node(head.data, Delete(head.next, position - 1))
