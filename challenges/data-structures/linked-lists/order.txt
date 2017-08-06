@@ -1,2 +1,8 @@
 Print the Elements of a Linked List
 	print-elements
+Insert a Node at the Tail of a Linked List
+	insert-node-tail
+Insert a Node at the Head of a Linked List
+	insert-node-nead
+Insert a Node at a Specific Position in a Linked List
+	insert-node-nth
