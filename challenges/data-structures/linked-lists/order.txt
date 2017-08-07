@@ -12,3 +12,5 @@ Print the Elements of a Linked List in Reverse
 	print-reverse
 Reverse a linked list
 	list-reverse
+Compare two linked lists
+	
