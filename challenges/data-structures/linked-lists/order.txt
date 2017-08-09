@@ -16,3 +16,7 @@ Compare two linked lists
 	compare-list
 Merge two sorted linked lists
 	merge-list
+Get Node Value
+	value-from-tail
+Delete duplicate-value nodes from a sorted linked list
+	delete-duplicate
