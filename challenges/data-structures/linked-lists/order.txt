@@ -20,3 +20,5 @@ Get Node Value
 	value-from-tail
 Delete duplicate-value nodes from a sorted linked list
 	delete-duplicate
+Cycle Detection
+	detect-cycle
